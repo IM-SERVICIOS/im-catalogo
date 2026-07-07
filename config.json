@@ -1,0 +1,20 @@
+{
+  "marca": {
+    "nombre": "IM Servicios Contables",
+    "siglas": "IM",
+    "lema": "Catálogo Inteligente de Servicios Contables y Fiscales"
+  },
+  "navegacion": [
+    { "texto": "Catálogo", "enlace": "#catalogo", "activo": true },
+    { "texto": "Cotizador", "enlace": "#", "activo": false, "estado": "Próximamente" },
+    { "texto": "Portal de clientes", "enlace": "#", "activo": false, "estado": "Próximamente" },
+    { "texto": "Academia IM", "enlace": "#", "activo": false, "estado": "Próximamente" }
+  ],
+  "modulosFuturos": [
+    { "id": "cotizador", "nombre": "Cotizador Inteligente", "fase": 3 },
+    { "id": "portal-clientes", "nombre": "Portal de Clientes", "fase": 3 },
+    { "id": "academia-im", "nombre": "Academia IM", "fase": 3 },
+    { "id": "plantillas", "nombre": "Biblioteca de Plantillas", "fase": 3 },
+    { "id": "dashboard", "nombre": "Dashboards Financieros", "fase": 3 }
+  ]
+}

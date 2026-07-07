@@ -1,0 +1,300 @@
+{
+  "categorias": [
+    { "id": "fiscal", "nombre": "Servicios Fiscales", "icono": "fiscal" },
+    { "id": "contable", "nombre": "Servicios Contables", "icono": "contable" },
+    { "id": "organizacion", "nombre": "Organización Financiera", "icono": "organizacion" },
+    { "id": "dashboards", "nombre": "Dashboards y Análisis", "icono": "dashboards" },
+    { "id": "automatizacion", "nombre": "Automatización Administrativa", "icono": "automatizacion" },
+    { "id": "asesorias", "nombre": "Asesorías Especializadas", "icono": "asesorias" }
+  ],
+  "servicios": [
+    {
+      "id": "IM-001",
+      "nombre": "Declaración Mensual",
+      "categoria": "fiscal",
+      "descripcionCorta": "Cálculo y presentación puntual de tus obligaciones fiscales cada mes.",
+      "descripcionCompleta": "Calculamos, revisamos y presentamos ante el SAT tus declaraciones mensuales de ISR e IVA, evitando recargos, multas y requerimientos por presentación extemporánea.",
+      "beneficios": [
+        "Presentación dentro del plazo legal, sin recargos",
+        "Revisión de CFDI emitidos y recibidos antes de declarar",
+        "Reporte mensual de impuestos a pagar o saldo a favor"
+      ],
+      "clienteIdeal": "Personas físicas con actividad empresarial y empresas que ya facturan de forma regular.",
+      "icono": "fiscal",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-002",
+      "nombre": "Declaración Anual",
+      "categoria": "fiscal",
+      "descripcionCorta": "Cierre fiscal del ejercicio con estrategia de deducciones y saldo a favor.",
+      "descripcionCompleta": "Preparamos tu declaración anual identificando deducciones autorizadas, verificando el correcto acumulado del ejercicio y gestionando la solicitud de saldo a favor cuando aplique.",
+      "beneficios": [
+        "Revisión completa del ejercicio fiscal",
+        "Identificación de deducciones no aprovechadas",
+        "Acompañamiento en trámite de devolución ante el SAT"
+      ],
+      "clienteIdeal": "Personas físicas y morales que buscan cerrar el año con certeza y sin contingencias.",
+      "icono": "fiscal",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-003",
+      "nombre": "Régimen RESICO",
+      "categoria": "fiscal",
+      "descripcionCorta": "Migración y administración fiscal bajo el Régimen Simplificado de Confianza.",
+      "descripcionCompleta": "Evaluamos si RESICO es tu mejor opción fiscal, gestionamos la migración ante el SAT y administramos tus obligaciones recurrentes bajo este régimen.",
+      "beneficios": [
+        "Análisis de conveniencia antes de migrar",
+        "Trámite de alta o cambio de régimen",
+        "Administración mensual de obligaciones RESICO"
+      ],
+      "clienteIdeal": "Personas físicas con ingresos anuales dentro de los límites permitidos por RESICO.",
+      "icono": "fiscal",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-004",
+      "nombre": "Contabilidad General",
+      "categoria": "contable",
+      "descripcionCorta": "Registro contable completo de tu operación bajo normas vigentes.",
+      "descripcionCompleta": "Llevamos el registro contable de tu negocio conforme a las Normas de Información Financiera, generando pólizas, balanza de comprobación y estados financieros mensuales.",
+      "beneficios": [
+        "Balanza de comprobación mensual",
+        "Estados financieros listos para toma de decisiones",
+        "Respaldo contable ante cualquier revisión"
+      ],
+      "clienteIdeal": "Empresas y negocios que requieren contabilidad formal y ordenada todo el año.",
+      "icono": "contable",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-005",
+      "nombre": "Nómina y Prestaciones",
+      "categoria": "contable",
+      "descripcionCorta": "Cálculo de nómina, IMSS y prestaciones conforme a la ley.",
+      "descripcionCompleta": "Calculamos tu nómina quincenal o mensual, generamos los CFDI de nómina correspondientes y mantenemos actualizadas las cuotas obrero-patronales ante el IMSS.",
+      "beneficios": [
+        "Cálculo correcto de percepciones y deducciones",
+        "Timbrado de recibos de nómina",
+        "Control de cuotas IMSS e INFONAVIT"
+      ],
+      "clienteIdeal": "Negocios con uno o más empleados en nómina formal.",
+      "icono": "contable",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-006",
+      "nombre": "Conciliación Bancaria",
+      "categoria": "contable",
+      "descripcionCorta": "Cruce mensual entre tus registros contables y tus estados de cuenta.",
+      "descripcionCompleta": "Conciliamos tus cuentas bancarias contra tu contabilidad para detectar diferencias, movimientos no registrados y mantener tu información financiera confiable.",
+      "beneficios": [
+        "Detección temprana de inconsistencias",
+        "Información contable alineada con el banco",
+        "Reporte mensual de conciliación"
+      ],
+      "clienteIdeal": "Negocios con movimiento bancario frecuente y múltiples cuentas.",
+      "icono": "contable",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-007",
+      "nombre": "Organización de Documentos Fiscales",
+      "categoria": "organizacion",
+      "descripcionCorta": "Orden y respaldo digital de tus CFDI y comprobantes.",
+      "descripcionCompleta": "Estructuramos un archivo digital ordenado de tus facturas emitidas y recibidas, listo para auditorías, declaraciones o revisiones del SAT.",
+      "beneficios": [
+        "Archivo digital ordenado por periodo",
+        "Respaldo permanente de CFDI",
+        "Acceso rápido ante cualquier requerimiento"
+      ],
+      "clienteIdeal": "Negocios con volumen alto de facturación y documentación dispersa.",
+      "icono": "organizacion",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-008",
+      "nombre": "Estructura de Gastos",
+      "categoria": "organizacion",
+      "descripcionCorta": "Clasificación clara de gastos personales y del negocio.",
+      "descripcionCompleta": "Diseñamos una estructura de categorías de gasto adaptada a tu operación, separando lo personal de lo empresarial y facilitando el control financiero mensual.",
+      "beneficios": [
+        "Categorías de gasto adaptadas a tu negocio",
+        "Separación clara entre finanzas personales y empresariales",
+        "Base ordenada para presupuestos futuros"
+      ],
+      "clienteIdeal": "Emprendedores que están formalizando el orden financiero de su negocio.",
+      "icono": "organizacion",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-009",
+      "nombre": "Presupuesto Anual",
+      "categoria": "organizacion",
+      "descripcionCorta": "Plan financiero anual con metas de ingreso y gasto.",
+      "descripcionCompleta": "Construimos junto contigo un presupuesto anual realista, con metas mensuales de ingresos, gastos fijos, variables y margen esperado.",
+      "beneficios": [
+        "Metas financieras claras por mes",
+        "Visibilidad de flujo de efectivo esperado",
+        "Base para decisiones de inversión"
+      ],
+      "clienteIdeal": "Negocios en crecimiento que buscan planear su año con anticipación.",
+      "icono": "organizacion",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-010",
+      "nombre": "Dashboard Financiero Mensual",
+      "categoria": "dashboards",
+      "descripcionCorta": "Panel visual con la salud financiera de tu negocio cada mes.",
+      "descripcionCompleta": "Convertimos tu información contable en un panel visual claro: ingresos, gastos, margen, impuestos y flujo de efectivo, actualizado mes a mes.",
+      "beneficios": [
+        "Vista clara de ingresos y gastos",
+        "Indicadores clave sin necesidad de leer estados financieros completos",
+        "Actualización mensual automática"
+      ],
+      "clienteIdeal": "Dueños de negocio que quieren decidir con datos, no solo con intuición.",
+      "icono": "dashboards",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-011",
+      "nombre": "Análisis de Rentabilidad",
+      "categoria": "dashboards",
+      "descripcionCorta": "Identificación de qué productos, servicios o líneas generan más margen.",
+      "descripcionCompleta": "Analizamos tu información financiera para identificar qué líneas de negocio son más rentables y cuáles están consumiendo recursos sin generar retorno.",
+      "beneficios": [
+        "Identificación de líneas de negocio más rentables",
+        "Detección de gastos que no generan retorno",
+        "Recomendaciones basadas en datos reales"
+      ],
+      "clienteIdeal": "Negocios con más de una línea de producto o servicio.",
+      "icono": "dashboards",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-012",
+      "nombre": "Indicadores Clave (KPI)",
+      "categoria": "dashboards",
+      "descripcionCorta": "Definición y seguimiento de los indicadores que realmente importan.",
+      "descripcionCompleta": "Definimos junto contigo los indicadores financieros clave de tu negocio y los damos seguimiento mensual dentro de un panel simple de entender.",
+      "beneficios": [
+        "Indicadores adaptados a tu tipo de negocio",
+        "Seguimiento mensual consistente",
+        "Alertas cuando un indicador se desvía de la meta"
+      ],
+      "clienteIdeal": "Negocios que buscan medir su desempeño de forma profesional.",
+      "icono": "dashboards",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-013",
+      "nombre": "Automatización de Facturación",
+      "categoria": "automatizacion",
+      "descripcionCorta": "Generación y timbrado automático de tus CFDI recurrentes.",
+      "descripcionCompleta": "Configuramos la emisión automática de facturas recurrentes y su timbrado ante el SAT, reduciendo tiempo administrativo y errores manuales.",
+      "beneficios": [
+        "Facturación recurrente sin intervención manual",
+        "Reducción de errores en la emisión",
+        "Ahorro de horas administrativas al mes"
+      ],
+      "clienteIdeal": "Negocios con facturación recurrente a los mismos clientes.",
+      "icono": "automatizacion",
+      "disponible": false,
+      "accionPrincipal": { "texto": "Notificarme al lanzar", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-014",
+      "nombre": "Recordatorios Fiscales Automáticos",
+      "categoria": "automatizacion",
+      "descripcionCorta": "Alertas antes de cada fecha límite de declaración o pago.",
+      "descripcionCompleta": "Implementamos un sistema de recordatorios que te avisa con anticipación sobre fechas límite de declaraciones, pagos provisionales y obligaciones patronales.",
+      "beneficios": [
+        "Cero declaraciones olvidadas",
+        "Anticipación para reunir información a tiempo",
+        "Tranquilidad ante el calendario fiscal"
+      ],
+      "clienteIdeal": "Negocios que manejan múltiples obligaciones fiscales al mes.",
+      "icono": "automatizacion",
+      "disponible": false,
+      "accionPrincipal": { "texto": "Notificarme al lanzar", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-015",
+      "nombre": "Flujo de Aprobaciones Administrativas",
+      "categoria": "automatizacion",
+      "descripcionCorta": "Procesos internos de gasto y aprobación digitalizados.",
+      "descripcionCompleta": "Diseñamos flujos digitales para la solicitud, revisión y aprobación de gastos internos, reduciendo el uso de papel y correos dispersos.",
+      "beneficios": [
+        "Trazabilidad de cada solicitud de gasto",
+        "Menos fricción entre áreas",
+        "Historial completo de aprobaciones"
+      ],
+      "clienteIdeal": "Empresas con varias personas autorizando gastos.",
+      "icono": "automatizacion",
+      "disponible": false,
+      "accionPrincipal": { "texto": "Notificarme al lanzar", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-016",
+      "nombre": "Asesoría Fiscal para Nuevos Negocios",
+      "categoria": "asesorias",
+      "descripcionCorta": "Acompañamiento desde la constitución hasta la primera declaración.",
+      "descripcionCompleta": "Guiamos a nuevos negocios en la elección de régimen fiscal, alta ante el SAT, y primeras obligaciones, evitando errores comunes desde el inicio.",
+      "beneficios": [
+        "Elección correcta de régimen fiscal desde el arranque",
+        "Alta ante el SAT sin errores",
+        "Base sólida para el primer año de operación"
+      ],
+      "clienteIdeal": "Personas que están iniciando un negocio o actividad profesional.",
+      "icono": "asesorias",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-017",
+      "nombre": "Asesoría en Estructura Corporativa",
+      "categoria": "asesorias",
+      "descripcionCorta": "Definición de la estructura societaria y fiscal más adecuada.",
+      "descripcionCompleta": "Analizamos tu operación para recomendar la estructura societaria y fiscal más eficiente, considerando riesgo, carga fiscal y proyección de crecimiento.",
+      "beneficios": [
+        "Estructura alineada al tamaño real del negocio",
+        "Reducción de riesgos fiscales innecesarios",
+        "Visión de mediano plazo, no solo del año en curso"
+      ],
+      "clienteIdeal": "Empresas en expansión o con más de una unidad de negocio.",
+      "icono": "asesorias",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-018",
+      "nombre": "Segunda Opinión Contable",
+      "categoria": "asesorias",
+      "descripcionCorta": "Revisión independiente de tu contabilidad actual.",
+      "descripcionCompleta": "Revisamos la contabilidad llevada por tu contador o despacho actual para identificar riesgos, oportunidades de ahorro fiscal e inconsistencias no detectadas.",
+      "beneficios": [
+        "Revisión objetiva sin compromisos previos",
+        "Identificación de riesgos no detectados antes",
+        "Recomendaciones concretas de mejora"
+      ],
+      "clienteIdeal": "Negocios que ya tienen contador pero buscan validar su situación actual.",
+      "icono": "asesorias",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    }
+  ]
+}

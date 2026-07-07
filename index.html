@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IM Catálogo Inteligente · IM Servicios Contables</title>
+<meta name="description" content="Explora, compara y solicita los servicios contables y fiscales de IM Servicios Contables en un catálogo interactivo.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Sprite de iconos, no visible directamente -->
+<div aria-hidden="true">
+  <object type="image/svg+xml" data="assets/icons/sprite.svg" style="display:none"></object>
+</div>
+
+<!-- ==========================================================================
+     Encabezado
+     ========================================================================== -->
+<header class="site-header">
+  <div class="container">
+    <a href="#" class="brand" aria-label="IM Servicios Contables, inicio">
+      <span class="brand-mark">IM</span>
+      <span class="brand-sello">Sello&nbsp;Contable</span>
+      <span class="brand-sub">Catálogo Inteligente</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+      <!-- Se completa dinámicamente desde config/config.json -->
+    </nav>
+  </div>
+</header>
+
+<!-- ==========================================================================
+     Hero
+     ========================================================================== -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Libro de servicios · edición digital</p>
+    <h1>Un catálogo que se explora, se compara y se solicita.</h1>
+    <p>Cada servicio de IM Servicios Contables está documentado como una ficha viva: qué resuelve, qué incluye y para quién es ideal. Busca, filtra y arma tu propia selección.</p>
+
+    <dl class="hero-stats" id="hero-stats">
+      <div class="hero-stat"><b id="stat-total">—</b><span>Servicios activos</span></div>
+      <div class="hero-stat"><b id="stat-categorias">—</b><span>Categorías</span></div>
+      <div class="hero-stat"><b>100%</b><span>Documentado por ficha</span></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     Buscador + categorías
+     ========================================================================== -->
+<div class="toolbar-wrap">
+  <div class="container">
+    <div class="toolbar">
+      <div class="search-row">
+        <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-search"></use></svg>
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Buscar por nombre, necesidad o palabra clave…"
+          aria-label="Buscar servicios">
+        <span class="search-count" id="search-count" aria-live="polite"></span>
+      </div>
+      <div class="category-tabs" id="category-tabs" role="tablist" aria-label="Filtrar por categoría">
+        <!-- Se completa dinámicamente -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     Catálogo
+     ========================================================================== -->
+<main>
+  <section class="catalog-section" id="catalogo">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Servicios disponibles</h2>
+        <span class="folio-label">IM/CATALOGO/2026</span>
+      </div>
+      <div class="card-grid" id="card-grid" aria-live="polite">
+        <!-- Tarjetas generadas dinámicamente desde data/services.json -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ==========================================================================
+     Modal de detalle
+     ========================================================================== -->
+<div class="modal-overlay" id="modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" id="modal">
+    <div class="modal-head">
+      <div class="modal-head-left">
+        <div class="modal-icon" id="modal-icon">
+          <svg class="icon" aria-hidden="true"><use href="#"></use></svg>
+        </div>
+        <div>
+          <h2 id="modal-title">—</h2>
+          <div class="modal-folio" id="modal-folio">—</div>
+        </div>
+      </div>
+      <button class="modal-close" id="modal-close" aria-label="Cerrar detalle">
+        <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-close"></use></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h4>Qué resuelve</h4>
+        <p id="modal-descripcion">—</p>
+      </div>
+      <div class="modal-section">
+        <h4>Beneficios</h4>
+        <ul class="benefit-list" id="modal-beneficios"></ul>
+      </div>
+      <div class="modal-section">
+        <h4>Cliente ideal</h4>
+        <p id="modal-cliente">—</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" id="modal-cerrar-btn">Seguir explorando</button>
+      <button class="btn btn-primary" id="modal-cta-btn">Solicitar información</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <span class="brand-mark">IM Servicios Contables</span>
+    <span>Catálogo Inteligente · Fase 1</span>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
