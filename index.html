@@ -50,6 +50,11 @@
       <div class="hero-stat"><b id="stat-categorias">—</b><span>Categorías</span></div>
       <div class="hero-stat"><b>100%</b><span>Documentado por ficha</span></div>
     </dl>
+
+    <div class="hero-exclusive" id="hero-exclusive" hidden>
+      <span class="hero-exclusive-tag" id="hero-exclusive-tag">Beneficio exclusivo</span>
+      <p id="hero-exclusive-texto"></p>
+    </div>
   </div>
 </section>
 
@@ -112,25 +117,203 @@
       </button>
     </div>
     <div class="modal-body">
-      <div class="modal-section">
+      <div class="modal-section" id="modal-sec-descripcion">
         <h4>Qué resuelve</h4>
-        <p id="modal-descripcion">—</p>
+        <p class="modal-lead" id="modal-descripcion">—</p>
       </div>
-      <div class="modal-section">
+      <div class="modal-section" id="modal-sec-problema" hidden>
+        <h4>Problema que resolvemos</h4>
+        <p id="modal-problema"></p>
+      </div>
+      <div class="modal-section" id="modal-sec-incluye" hidden>
+        <h4>Qué incluye</h4>
+        <ul class="check-list" id="modal-incluye"></ul>
+      </div>
+      <div class="modal-section" id="modal-sec-beneficios">
         <h4>Beneficios</h4>
         <ul class="benefit-list" id="modal-beneficios"></ul>
       </div>
-      <div class="modal-section">
+      <div class="modal-section" id="modal-sec-proceso" hidden>
+        <h4>Cómo trabajamos</h4>
+        <ol class="process-list" id="modal-proceso"></ol>
+      </div>
+      <div class="modal-section" id="modal-sec-resultado" hidden>
+        <h4>Resultado esperado</h4>
+        <p id="modal-resultado"></p>
+      </div>
+      <div class="modal-section" id="modal-sec-faq" hidden>
+        <h4>Preguntas frecuentes</h4>
+        <div class="faq-list" id="modal-faq"></div>
+      </div>
+      <div class="modal-section" id="modal-sec-cliente">
         <h4>Cliente ideal</h4>
         <p id="modal-cliente">—</p>
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-secondary" id="modal-cerrar-btn">Seguir explorando</button>
-      <button class="btn btn-primary" id="modal-cta-btn">Solicitar información</button>
+      <div class="modal-footer-secondary" id="modal-acciones-secundarias" hidden></div>
+      <div class="modal-footer-primary">
+        <button class="btn btn-secondary" id="modal-cerrar-btn">Seguir explorando</button>
+        <button class="btn btn-primary" id="modal-cta-btn">Solicitar información</button>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- ==========================================================================
+     Cotizador Inteligente
+     ========================================================================== -->
+<section class="catalog-section" id="cotizador">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Cuéntanos de tu negocio y te asesoramos</h2>
+      <span class="folio-label">IM/COTIZADOR/2026</span>
+    </div>
+    <p class="cotizador-intro">No es un formulario más: es el primer paso de una asesoría a tu medida. Te tomará menos de 2 minutos.</p>
+
+    <div class="cotizador-box">
+
+      <div class="cotizador-progress" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1" id="cotizadorProgressWrap">
+        <div class="cotizador-progress-bar" id="cotizadorProgressBar" style="width:25%"></div>
+      </div>
+      <div class="cotizador-steps-label">
+        <span class="step-dot active" data-step-label="1">1. Contacto</span>
+        <span class="step-dot" data-step-label="2">2. Tu negocio</span>
+        <span class="step-dot" data-step-label="3">3. Servicios</span>
+        <span class="step-dot" data-step-label="4">4. Confirmar</span>
+      </div>
+
+      <form id="cotizadorForm" novalidate>
+
+        <!-- PASO 1: Datos de contacto -->
+        <fieldset class="cotizador-step" data-step="1">
+          <legend>Datos de contacto</legend>
+          <div class="form-row">
+            <label for="q-nombre">Nombre completo *</label>
+            <input type="text" id="q-nombre" name="nombre" required autocomplete="name">
+          </div>
+          <div class="form-row two-col">
+            <div>
+              <label for="q-correo">Correo electrónico *</label>
+              <input type="email" id="q-correo" name="correo" required autocomplete="email">
+            </div>
+            <div>
+              <label for="q-telefono">Teléfono / WhatsApp *</label>
+              <input type="tel" id="q-telefono" name="telefono" required autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-row two-col">
+            <div>
+              <label for="q-ciudad">Ciudad *</label>
+              <input type="text" id="q-ciudad" name="ciudad" required>
+            </div>
+            <div>
+              <label for="q-estado">Estado *</label>
+              <input type="text" id="q-estado" name="estado" required>
+            </div>
+          </div>
+          <div class="cotizador-actions">
+            <span></span>
+            <button type="button" class="btn btn-primary" data-action="next">Siguiente</button>
+          </div>
+        </fieldset>
+
+        <!-- PASO 2: Tu negocio -->
+        <fieldset class="cotizador-step" data-step="2" hidden>
+          <legend>Tu negocio</legend>
+          <div class="form-row two-col">
+            <div>
+              <label for="q-empresa">Nombre de tu empresa / negocio</label>
+              <input type="text" id="q-empresa" name="empresa">
+            </div>
+            <div>
+              <label for="q-rfc">RFC (opcional)</label>
+              <input type="text" id="q-rfc" name="rfc" maxlength="13">
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="q-tipo">Tipo de contribuyente *</label>
+            <select id="q-tipo" name="tipoContribuyente" required>
+              <option value="" selected disabled>Selecciona una opción…</option>
+              <option value="Persona Física">Persona Física</option>
+              <option value="Persona Moral">Persona Moral</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="q-tamano">Tamaño de tu operación *</label>
+            <select id="q-tamano" name="tamanoOperacion" required>
+              <option value="" selected disabled>Selecciona una opción…</option>
+              <option value="Emprendedor / Independiente">Emprendedor / Independiente</option>
+              <option value="1 a 5 empleados">1 a 5 empleados</option>
+              <option value="6 a 20 empleados">6 a 20 empleados</option>
+              <option value="Más de 20 empleados">Más de 20 empleados</option>
+            </select>
+          </div>
+          <div class="cotizador-actions">
+            <button type="button" class="btn btn-secondary" data-action="prev">Anterior</button>
+            <button type="button" class="btn btn-primary" data-action="next">Siguiente</button>
+          </div>
+        </fieldset>
+
+        <!-- PASO 3: Servicios de interés (cargados desde data/services.json) -->
+        <fieldset class="cotizador-step" data-step="3" hidden>
+          <legend>Servicios de interés</legend>
+          <p class="form-hint">Selecciona uno o varios servicios (puedes elegir más de uno).</p>
+          <div class="checkbox-grid" id="q-servicios-grid" role="group" aria-label="Servicios de interés"></div>
+          <div class="form-row">
+            <label for="q-presupuesto">Presupuesto estimado</label>
+            <select id="q-presupuesto" name="presupuesto">
+              <option value="" selected disabled>Selecciona una opción…</option>
+              <option value="Aún no lo sé / quiero orientación">Aún no lo sé / quiero orientación</option>
+              <option value="Menos de $2,000 MXN/mes">Menos de $2,000 MXN/mes</option>
+              <option value="$2,000 - $5,000 MXN/mes">$2,000 - $5,000 MXN/mes</option>
+              <option value="Más de $5,000 MXN/mes">Más de $5,000 MXN/mes</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="q-comentarios">Comentarios (opcional)</label>
+            <textarea id="q-comentarios" name="comentarios" rows="3" placeholder="Cuéntanos cualquier detalle adicional que nos ayude a asesorarte mejor."></textarea>
+          </div>
+          <div class="cotizador-actions">
+            <button type="button" class="btn btn-secondary" data-action="prev">Anterior</button>
+            <button type="button" class="btn btn-primary" data-action="next">Revisar solicitud</button>
+          </div>
+        </fieldset>
+
+        <!-- PASO 4: Confirmación -->
+        <fieldset class="cotizador-step" data-step="4" hidden>
+          <legend>Confirma tu solicitud</legend>
+          <div class="resumen-box" id="q-resumen"></div>
+          <div class="cotizador-actions">
+            <button type="button" class="btn btn-secondary" data-action="prev">Anterior</button>
+            <button type="submit" class="btn btn-primary" id="q-enviar">Enviar solicitud</button>
+          </div>
+        </fieldset>
+
+      </form>
+
+      <div id="cotizadorEnviando" class="cotizador-feedback" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Enviando tu solicitud…</p>
+      </div>
+
+      <div id="cotizadorExito" class="cotizador-feedback" hidden>
+        <div class="folio-card">
+          <span class="folio-label">Tu folio de seguimiento</span>
+          <strong id="folioNumero">IM-00000000-0000</strong>
+        </div>
+        <p>Recibimos tu solicitud. Nuestro equipo fue notificado para darte seguimiento personalizado.</p>
+        <a id="q-whatsappFolio" class="btn btn-primary" href="#" target="_blank" rel="noopener">Continuar por WhatsApp con mi folio</a>
+      </div>
+
+      <div id="cotizadorError" class="cotizador-feedback" hidden>
+        <p>No pudimos enviar tu solicitud automáticamente. No te preocupes: escríbenos directo por WhatsApp y con gusto te atendemos de inmediato.</p>
+        <a id="q-whatsappError" class="btn btn-primary" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="container">
@@ -139,6 +322,12 @@
   </div>
 </footer>
 
+<!-- SDK de Supabase (solo se usa para insertar cotizaciones; sin lectura pública) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="config/supabase-config.js"></script>
+<script src="js/supabase-client.js"></script>
+
 <script src="js/app.js"></script>
+<script src="js/cotizador.js"></script>
 </body>
 </html>
