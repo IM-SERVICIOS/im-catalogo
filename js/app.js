@@ -19,6 +19,7 @@
     config: null,
     categorias: [],
     servicios: [],
+    beneficioExclusivo: null,
     categoriaActiva: 'todos',
     termino: ''
   };
@@ -27,6 +28,9 @@
     mainNav: document.getElementById('main-nav'),
     statTotal: document.getElementById('stat-total'),
     statCategorias: document.getElementById('stat-categorias'),
+    heroExclusive: document.getElementById('hero-exclusive'),
+    heroExclusiveTag: document.getElementById('hero-exclusive-tag'),
+    heroExclusiveTexto: document.getElementById('hero-exclusive-texto'),
     searchInput: document.getElementById('search-input'),
     searchCount: document.getElementById('search-count'),
     categoryTabs: document.getElementById('category-tabs'),
@@ -36,8 +40,19 @@
     modalFolio: document.getElementById('modal-folio'),
     modalIcon: document.getElementById('modal-icon'),
     modalDescripcion: document.getElementById('modal-descripcion'),
+    modalSecProblema: document.getElementById('modal-sec-problema'),
+    modalProblema: document.getElementById('modal-problema'),
+    modalSecIncluye: document.getElementById('modal-sec-incluye'),
+    modalIncluye: document.getElementById('modal-incluye'),
     modalBeneficios: document.getElementById('modal-beneficios'),
+    modalSecProceso: document.getElementById('modal-sec-proceso'),
+    modalProceso: document.getElementById('modal-proceso'),
+    modalSecResultado: document.getElementById('modal-sec-resultado'),
+    modalResultado: document.getElementById('modal-resultado'),
+    modalSecFaq: document.getElementById('modal-sec-faq'),
+    modalFaq: document.getElementById('modal-faq'),
     modalCliente: document.getElementById('modal-cliente'),
+    modalAccionesSecundarias: document.getElementById('modal-acciones-secundarias'),
     modalClose: document.getElementById('modal-close'),
     modalCerrarBtn: document.getElementById('modal-cerrar-btn'),
     modalCtaBtn: document.getElementById('modal-cta-btn')
@@ -65,9 +80,11 @@
       state.config = config;
       state.categorias = catalogo.categorias;
       state.servicios = catalogo.servicios;
+      state.beneficioExclusivo = catalogo.beneficioExclusivo || null;
 
       renderNav();
       renderStats();
+      renderHeroExclusivo();
       renderCategoryTabs();
       renderCards();
       registrarEventos();
@@ -108,6 +125,17 @@
   function renderStats() {
     els.statTotal.textContent = state.servicios.filter(function (s) { return s.disponible; }).length;
     els.statCategorias.textContent = state.categorias.length;
+  }
+
+  function renderHeroExclusivo() {
+    const b = state.beneficioExclusivo;
+    if (!b || (!b.titulo && !b.descripcion && !b.texto)) {
+      els.heroExclusive.hidden = true;
+      return;
+    }
+    els.heroExclusiveTag.textContent = b.titulo || 'Beneficio exclusivo';
+    els.heroExclusiveTexto.textContent = b.descripcion || b.texto || '';
+    els.heroExclusive.hidden = false;
   }
 
   function renderCategoryTabs() {
@@ -215,9 +243,35 @@
     els.modalDescripcion.textContent = servicio.descripcionCompleta;
     els.modalCliente.textContent = servicio.clienteIdeal;
 
-    els.modalBeneficios.innerHTML = servicio.beneficios.map(function (b) {
+    // Problema que resolvemos
+    mostrarSeccion(els.modalSecProblema, servicio.problema);
+    els.modalProblema.textContent = servicio.problema || '';
+
+    // Qué incluye
+    mostrarSeccion(els.modalSecIncluye, servicio.queIncluye && servicio.queIncluye.length);
+    renderListaSimple(els.modalIncluye, servicio.queIncluye, 'icon-check');
+
+    // Beneficios (se mantiene, siempre visible)
+    els.modalBeneficios.innerHTML = (servicio.beneficios || []).map(function (b) {
       return '<li><svg class="icon" aria-hidden="true"><use href="' + ICONS_PATH + '#icon-check"></use></svg>' + b + '</li>';
     }).join('');
+
+    // Cómo trabajamos
+    mostrarSeccion(els.modalSecProceso, servicio.comoTrabajamos && servicio.comoTrabajamos.length);
+    els.modalProceso.innerHTML = (servicio.comoTrabajamos || []).map(function (paso) {
+      return '<li>' + paso + '</li>';
+    }).join('');
+
+    // Resultado esperado
+    mostrarSeccion(els.modalSecResultado, servicio.resultadoEsperado);
+    els.modalResultado.textContent = servicio.resultadoEsperado || '';
+
+    // Preguntas frecuentes
+    mostrarSeccion(els.modalSecFaq, servicio.faq && servicio.faq.length);
+    renderFAQ(els.modalFaq, servicio.faq);
+
+    // Acciones secundarias (preparadas, inactivas hasta la siguiente etapa)
+    renderAccionesSecundarias(els.modalAccionesSecundarias, servicio.accionesSecundarias);
 
     els.modalCtaBtn.textContent = servicio.accionPrincipal.texto;
     els.modalCtaBtn.disabled = false;
@@ -229,6 +283,51 @@
     els.modalOverlay.hidden = false;
     document.body.style.overflow = 'hidden';
     els.modalClose.focus();
+  }
+
+  // Muestra/oculta una sección del modal según si hay contenido real.
+  function mostrarSeccion(wrapper, contenido) {
+    if (!wrapper) return;
+    wrapper.hidden = !contenido;
+  }
+
+  // Convierte un array de strings en una lista <li>, con ícono opcional.
+  function renderListaSimple(contenedor, items, iconoId) {
+    if (!contenedor) return;
+    contenedor.innerHTML = (items || []).map(function (item) {
+      const icono = iconoId
+        ? '<svg class="icon" aria-hidden="true"><use href="' + ICONS_PATH + '#' + iconoId + '"></use></svg>'
+        : '';
+      return '<li>' + icono + item + '</li>';
+    }).join('');
+  }
+
+  // Arma el acordeón de preguntas frecuentes a partir de [{pregunta, respuesta}].
+  function renderFAQ(contenedor, preguntas) {
+    if (!contenedor) return;
+    contenedor.innerHTML = (preguntas || []).map(function (p) {
+      return (
+        '<details class="faq-item">' +
+          '<summary>' + p.pregunta + '</summary>' +
+          '<p>' + p.respuesta + '</p>' +
+        '</details>'
+      );
+    }).join('');
+  }
+
+  // Botones secundarios (Agregar al cotizador / WhatsApp) preparados pero
+  // deshabilitados hasta que esas fases se implementen.
+  function renderAccionesSecundarias(contenedor, acciones) {
+    if (!contenedor) return;
+    if (!acciones || !acciones.length) {
+      contenedor.hidden = true;
+      contenedor.innerHTML = '';
+      return;
+    }
+    contenedor.hidden = false;
+    contenedor.innerHTML = acciones.map(function (accion) {
+      return '<button class="btn btn-secondary" type="button" disabled title="Disponible en una próxima etapa">' + accion.texto + '</button>';
+    }).join('');
   }
 
   function cerrarDetalle() {
