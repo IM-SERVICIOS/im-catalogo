@@ -7,8 +7,8 @@
   "navegacion": [
     { "texto": "Catálogo", "enlace": "#catalogo", "activo": true },
     { "texto": "Cotizador", "enlace": "#cotizador", "activo": true },
-    { "texto": "Portal de clientes", "enlace": "#", "activo": false, "estado": "Próximamente" },
-    { "texto": "Academia IM", "enlace": "#", "activo": false, "estado": "Próximamente" }
+    { "texto": "Portal IM", "enlace": "https://im-servicios.github.io/im-portal-clientes/index.html", "activo": true },
+    { "texto": "Academia IM", "enlace": "https://im-servicios.github.io/CONTABLES/academia.html", "activo": true }
   ],
   "modulosFuturos": [
     { "id": "portal-clientes", "nombre": "Portal de Clientes", "fase": 3 },
