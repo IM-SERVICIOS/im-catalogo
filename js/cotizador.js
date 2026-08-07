@@ -203,14 +203,28 @@
       if (!window.IM_SUPABASE) {
         throw new Error('Supabase no está configurado (revisa config/supabase-config.js).');
       }
-      const { data: fila, error } = await window.IM_SUPABASE
-        .from('cotizaciones')
-        .insert(registro)
-        .select('folio')
-        .single();
+      // Se usa una función RPC (ver supabase/002_crear_cotizacion_rpc.sql) en vez de
+      // .insert().select() directo: la política RLS solo permite INSERT para "anon",
+      // así que un select() de vuelta fallaba siempre y tirábamos a WhatsApp aunque
+      // la cotización sí se hubiera guardado. La función inserta y regresa solo el
+      // folio, sin necesitar abrir SELECT público sobre la tabla completa.
+      const { data: folio, error } = await window.IM_SUPABASE.rpc('crear_cotizacion', {
+        p_nombre: registro.nombre,
+        p_empresa: registro.empresa,
+        p_rfc: registro.rfc,
+        p_correo: registro.correo,
+        p_telefono: registro.telefono,
+        p_ciudad: registro.ciudad,
+        p_estado: registro.estado,
+        p_tipo_contribuyente: registro.tipo_contribuyente,
+        p_tamano_operacion: registro.tamano_operacion,
+        p_servicios_ids: registro.servicios_ids,
+        p_presupuesto: registro.presupuesto,
+        p_comentarios: registro.comentarios
+      });
 
       if (error) throw error;
-      return fila.folio;
+      return folio;
     }
 
     async function enviarCorreoRespaldo(cfg, payload) {
