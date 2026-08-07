@@ -1259,6 +1259,23 @@ input:focus-visible {
 
 .site-footer .brand-mark { color: rgba(246,244,238,0.8); font-size: 15px; }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(246,244,238,0.55);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-links a:hover { color: var(--paper); text-decoration: underline; }
+
+.footer-copy { color: rgba(246,244,238,0.4); }
+
 /* ==========================================================================
    Utility
    ========================================================================== */
