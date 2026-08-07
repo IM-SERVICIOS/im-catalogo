@@ -1,15 +1,13 @@
 {
-  "beneficioExclusivo": {
-    "titulo": "Beneficio exclusivo · Portal IM",
-    "descripcion": "Como cliente activo tienes acceso sin costo al Portal IM: tu espacio privado para consultar tus declaraciones, revisar y descargar tus documentos fiscales, y ver el estado de tus honorarios, todo en un solo lugar y actualizado en tiempo real."
-  },
   "categorias": [
     { "id": "fiscal", "nombre": "Servicios Fiscales", "icono": "fiscal" },
     { "id": "contable", "nombre": "Servicios Contables", "icono": "contable" },
     { "id": "organizacion", "nombre": "Organización Financiera", "icono": "organizacion" },
     { "id": "dashboards", "nombre": "Dashboards y Análisis", "icono": "dashboards" },
     { "id": "automatizacion", "nombre": "Automatización Administrativa", "icono": "automatizacion" },
-    { "id": "asesorias", "nombre": "Asesorías Especializadas", "icono": "asesorias" }
+    { "id": "asesorias", "nombre": "Asesorías Especializadas", "icono": "asesorias" },
+    { "id": "plantillas", "nombre": "Plantillas Inteligentes IM", "icono": "plantillas" },
+    { "id": "academia", "nombre": "Academia IM", "icono": "academia" }
   ],
   "servicios": [
     {
@@ -299,7 +297,223 @@
       "icono": "asesorias",
       "disponible": true,
       "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-019",
+      "nombre": "Flujo de Efectivo",
+      "categoria": "plantillas",
+      "descripcionCorta": "Control diario de entradas y salidas para saber, en todo momento, cuánto dinero tienes disponible.",
+      "descripcionCompleta": "Plantilla lista para usar que registra tus entradas y salidas de efectivo día a día, mostrándote tu saldo disponible en tiempo real y ayudándote a anticipar faltantes antes de que ocurran.",
+      "beneficios": [
+        "Saldo disponible siempre actualizado",
+        "Visión clara de entradas y salidas diarias",
+        "Anticipa faltantes de efectivo antes de que te tomen por sorpresa"
+      ],
+      "clienteIdeal": "Negocios que quieren dejar de operar 'a ojo' y saber con certeza cuánto dinero tienen.",
+      "icono": "plantillas",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-020",
+      "nombre": "Control de Ingresos",
+      "categoria": "plantillas",
+      "descripcionCorta": "Registra y analiza tus ingresos fácilmente, por cliente, servicio o periodo.",
+      "descripcionCompleta": "Plantilla para llevar el registro ordenado de todos tus ingresos, con la posibilidad de analizarlos por cliente, servicio o periodo, identificando de dónde viene realmente tu dinero.",
+      "beneficios": [
+        "Registro ordenado de cada ingreso",
+        "Análisis por cliente, servicio o periodo",
+        "Identifica tus fuentes de ingreso más importantes"
+      ],
+      "clienteIdeal": "Negocios con varios clientes, servicios o líneas de ingreso que quieren claridad.",
+      "icono": "plantillas",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-021",
+      "nombre": "Gestión de Gastos",
+      "categoria": "plantillas",
+      "descripcionCorta": "Controla tus egresos con una plantilla detallada y categorizada.",
+      "descripcionCompleta": "Plantilla detallada y categorizada para registrar cada egreso del negocio, facilitando la identificación de gastos hormiga y el control del gasto mes a mes.",
+      "beneficios": [
+        "Egresos organizados por categoría",
+        "Identificación rápida de gastos hormiga",
+        "Base ordenada para tu declaración de impuestos"
+      ],
+      "clienteIdeal": "Negocios que quieren dejar de perder el rastro de en qué se va el dinero.",
+      "icono": "plantillas",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-022",
+      "nombre": "Presupuestos",
+      "categoria": "plantillas",
+      "descripcionCorta": "Planea tus finanzas del año y compara lo presupuestado contra lo real.",
+      "descripcionCompleta": "Plantilla para planear tus finanzas del año por mes, con comparación automática entre lo presupuestado y lo realmente ingresado o gastado.",
+      "beneficios": [
+        "Metas de ingreso y gasto por mes",
+        "Comparación automática presupuesto vs. real",
+        "Detecta desviaciones a tiempo para corregir el rumbo"
+      ],
+      "clienteIdeal": "Negocios que quieren planear su año en vez de improvisarlo mes a mes.",
+      "icono": "plantillas",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-023",
+      "nombre": "Facturación",
+      "categoria": "plantillas",
+      "descripcionCorta": "Organiza tu facturación emitida y recibida, lista para tu declaración.",
+      "descripcionCompleta": "Plantilla que concentra tu facturación emitida y recibida en un solo lugar, ordenada y lista para tu declaración mensual o anual.",
+      "beneficios": [
+        "Facturación emitida y recibida en un solo lugar",
+        "Orden mensual listo para declarar",
+        "Menos tiempo buscando facturas dispersas"
+      ],
+      "clienteIdeal": "Negocios que facturan de forma regular y necesitan orden mes con mes.",
+      "icono": "plantillas",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-024",
+      "nombre": "Inventarios",
+      "categoria": "plantillas",
+      "descripcionCorta": "Controla existencias, entradas y salidas de producto sin perder el hilo.",
+      "descripcionCompleta": "Plantilla para llevar el control de existencias, entradas y salidas de producto, ayudándote a saber qué tienes disponible y cuándo reabastecer.",
+      "beneficios": [
+        "Existencias siempre actualizadas",
+        "Registro claro de entradas y salidas",
+        "Alertas visuales para reabastecer a tiempo"
+      ],
+      "clienteIdeal": "Negocios que manejan producto físico y necesitan control de inventario.",
+      "icono": "plantillas",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-025",
+      "nombre": "Conciliaciones",
+      "categoria": "plantillas",
+      "descripcionCorta": "Concilia tus cuentas bancarias contra tus registros contables sin dolores de cabeza.",
+      "descripcionCompleta": "Plantilla que facilita el cruce entre tus movimientos bancarios y tus registros contables, ayudándote a detectar diferencias sin complicaciones.",
+      "beneficios": [
+        "Cruce simplificado banco vs. contabilidad",
+        "Detección rápida de diferencias",
+        "Proceso mensual mucho más ágil"
+      ],
+      "clienteIdeal": "Negocios que quieren conciliar sus cuentas sin depender de fórmulas complejas.",
+      "icono": "plantillas",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-026",
+      "nombre": "Calendario Fiscal",
+      "categoria": "plantillas",
+      "descripcionCorta": "No vuelvas a perder una fecha límite del SAT: todas tus obligaciones en un solo calendario.",
+      "descripcionCompleta": "Plantilla de calendario con todas tus fechas límite del SAT organizadas en un solo lugar, para que ninguna obligación se te pase por alto.",
+      "beneficios": [
+        "Todas tus fechas límite en un solo lugar",
+        "Cero declaraciones olvidadas",
+        "Tranquilidad ante el calendario fiscal del año"
+      ],
+      "clienteIdeal": "Negocios y personas con varias obligaciones fiscales a lo largo del año.",
+      "icono": "plantillas",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-027",
+      "nombre": "Simuladores y Calculadoras",
+      "categoria": "plantillas",
+      "descripcionCorta": "Simula escenarios e impuestos antes de tomar decisiones importantes para tu negocio.",
+      "descripcionCompleta": "Plantillas con simuladores y calculadoras que te permiten proyectar impuestos y escenarios financieros antes de tomar decisiones importantes para tu negocio.",
+      "beneficios": [
+        "Simula impuestos antes de que te lleguen",
+        "Proyecta distintos escenarios financieros",
+        "Decide con números, no con suposiciones"
+      ],
+      "clienteIdeal": "Negocios que quieren evaluar decisiones antes de tomarlas, no después.",
+      "icono": "plantillas",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-028",
+      "nombre": "Plantilla a tu Medida",
+      "categoria": "plantillas",
+      "descripcionCorta": "¿No encontraste lo que buscas? Diseñamos una plantilla personalizada para tu operación.",
+      "descripcionCompleta": "Si ninguna de nuestras plantillas se ajusta exactamente a lo que necesitas, diseñamos una plantilla a tu medida, adaptada a la forma en que realmente opera tu negocio.",
+      "beneficios": [
+        "Diseño 100% adaptado a tu operación",
+        "Partimos de tus procesos reales, no de una plantilla genérica",
+        "Acompañamiento para dejarla lista para usar"
+      ],
+      "clienteIdeal": "Negocios con necesidades específicas que las plantillas estándar no cubren.",
+      "icono": "plantillas",
+      "disponible": true,
+      "accionPrincipal": { "texto": "Solicitar plantilla a mi medida", "tipo": "detalle" }
+    },
+    {
+      "id": "IM-029",
+      "nombre": "Excel Básico–Intermedio",
+      "categoria": "academia",
+      "descripcionCorta": "El punto de partida ideal si nunca has usado Excel o quieres solidificar las bases: fórmulas, formatos y organización de datos.",
+      "descripcionCompleta": "Curso pensado para quienes nunca han usado Excel o quieren solidificar las bases: fórmulas esenciales, formatos y organización de datos para empezar a trabajar con confianza.",
+      "beneficios": [
+        "Bases sólidas de fórmulas y formatos",
+        "Organización de datos desde cero",
+        "Ideal si nunca has usado Excel"
+      ],
+      "clienteIdeal": "Personas que inician en Excel o quieren reforzar los fundamentos.",
+      "icono": "academia",
+      "disponible": true,
+      "precioEstimado": 79,
+      "moneda": "MXN",
+      "precioNota": "por persona + IVA",
+      "accionPrincipal": { "texto": "Preguntar por este curso", "tipo": "whatsapp-curso" }
+    },
+    {
+      "id": "IM-030",
+      "nombre": "Excel Intermedio–Avanzado",
+      "categoria": "academia",
+      "descripcionCorta": "Tablas dinámicas, funciones de búsqueda y automatización de reportes para llevar tu manejo de datos al siguiente nivel.",
+      "descripcionCompleta": "Curso para llevar tu manejo de datos al siguiente nivel: tablas dinámicas, funciones de búsqueda y automatización de reportes para trabajar más rápido y con menos errores.",
+      "beneficios": [
+        "Tablas dinámicas aplicadas a casos reales",
+        "Funciones de búsqueda para cruzar información",
+        "Reportes automatizados que ahorran horas"
+      ],
+      "clienteIdeal": "Personas con bases de Excel que quieren automatizar su trabajo diario.",
+      "icono": "academia",
+      "disponible": true,
+      "precioEstimado": 99,
+      "moneda": "MXN",
+      "precioNota": "por persona + IVA",
+      "accionPrincipal": { "texto": "Preguntar por este curso", "tipo": "whatsapp-curso" }
+    },
+    {
+      "id": "IM-031",
+      "nombre": "Excel para Negocios y Contabilidad",
+      "categoria": "academia",
+      "descripcionCorta": "Aplicación práctica de Excel al mundo contable y empresarial: flujo de efectivo, nómina, impuestos y control de costos.",
+      "descripcionCompleta": "Curso de aplicación práctica de Excel al mundo contable y empresarial: flujo de efectivo, nómina, impuestos y control de costos, con ejercicios basados en casos reales de negocio.",
+      "beneficios": [
+        "Excel aplicado directamente a contabilidad y negocio",
+        "Ejercicios con casos reales de flujo de efectivo, nómina e impuestos",
+        "Listo para aplicarse desde la primera semana"
+      ],
+      "clienteIdeal": "Dueños de negocio, auxiliares contables y administrativos que usan Excel a diario.",
+      "icono": "academia",
+      "disponible": true,
+      "precioEstimado": 149,
+      "moneda": "MXN",
+      "precioNota": "por persona + IVA",
+      "accionPrincipal": { "texto": "Preguntar por este curso", "tipo": "whatsapp-curso" }
     }
   ]
 }
-
