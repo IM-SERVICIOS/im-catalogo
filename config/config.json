@@ -13,7 +13,6 @@
     { "texto": "Plantillas IM", "enlace": "https://im-servicios.github.io/im-catalogo-inteligente/productos.html", "activo": true },
     { "texto": "Dashboards IM", "enlace": "https://im-servicios.github.io/im-catalogo-inteligente/index.html#dashboards", "activo": true }
   ],
-  ],
   "modulosFuturos": [
     { "id": "portal-clientes", "nombre": "Portal de Clientes", "fase": 3 },
     { "id": "academia-im", "nombre": "Academia IM", "fase": 3 },
