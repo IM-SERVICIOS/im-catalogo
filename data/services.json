@@ -1,4 +1,8 @@
 {
+  "beneficioExclusivo": {
+    "titulo": "Beneficio exclusivo · Portal IM",
+    "descripcion": "Como cliente de IM Servicios Contables, tienes acceso gratuito al Portal IM: tu espacio privado disponible 24/7 para consultar tus declaraciones, revisar y descargar tus documentos fiscales, y ver el estado de tus honorarios en tiempo real, desde cualquier dispositivo."
+  },
   "categorias": [
     { "id": "fiscal", "nombre": "Servicios Fiscales", "icono": "fiscal" },
     { "id": "contable", "nombre": "Servicios Contables", "icono": "contable" },
