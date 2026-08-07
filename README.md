@@ -44,9 +44,15 @@ archivos JSON. 100% compatible con GitHub Pages.
   - `dataLayer` (`cargarJSON`, `iniciar`): trae `config.json` y `services.json`.
   - `render` (`renderNav`, `renderStats`, `renderCategoryTabs`, `renderCards`, `cardHTML`):
     construye el DOM a partir del estado.
-  - `interactions` (`registrarEventos`, `abrirDetalle`, `cerrarDetalle`): buscador, tabs y modal.
-- **Estado en memoria** (`state`): categoría activa y término de búsqueda. Cualquier cambio
-  vuelve a renderizar solo la grilla de tarjetas, no toda la página.
+  - `interactions` (`registrarEventos`, `abrirDetalle`, `cerrarDetalle`): buscador, tabs, filtro
+    por tipo de cliente y modal.
+  - `selección` (`alternarSeleccion`, `renderPanelSeleccion`, `abrirPanelSeleccion`,
+    `irACotizadorConServicios`): el "carrito" de servicios — botón "+" en tarjeta/modal, panel
+    lateral y envío al cotizador.
+- **Estado en memoria** (`state`): categoría activa, tipo de cliente activo y término de
+  búsqueda. Cualquier cambio vuelve a renderizar solo la grilla de tarjetas, no toda la página.
+  La selección (`state.seleccion`) además se persiste en `sessionStorage` para sobrevivir a la
+  navegación dentro de la misma pestaña, sin backend.
 - **Iconos propios**: `assets/icons/sprite.svg` define símbolos SVG reutilizables (uno por
   categoría, más utilitarios de búsqueda, cierre, check y candado para fases futuras).
 
@@ -63,6 +69,7 @@ Abre `data/services.json` y agrega un objeto dentro del arreglo `servicios`:
   "descripcionCompleta": "Explicación completa de qué resuelve y cómo.",
   "beneficios": ["Beneficio 1", "Beneficio 2", "Beneficio 3"],
   "clienteIdeal": "A quién le sirve este servicio.",
+  "tipoCliente": ["emprendedor", "empresa"],
   "icono": "fiscal",
   "disponible": true,
   "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
@@ -73,6 +80,11 @@ Abre `data/services.json` y agrega un objeto dentro del arreglo `servicios`:
 - `icono` debe coincidir con un símbolo existente en `assets/icons/sprite.svg`
   (`fiscal`, `contable`, `organizacion`, `dashboards`, `automatizacion`, `asesorias`).
 - `disponible: false` muestra el servicio como "Próximamente" con un punto de estado en ámbar.
+- `tipoCliente` es un arreglo con uno o más de: `fisica`, `emprendedor`, `empresa`. Alimenta el
+  filtro "Para ti si eres…" del toolbar. Se deriva de `clienteIdeal`, no es un campo narrativo:
+  si `clienteIdeal` menciona "persona(s) física(s)" agrega `fisica`; si menciona "empresa(s)"
+  agrega `empresa`; si menciona "emprendedor(es)" agrega `emprendedor`; si dice "negocio(s)" de
+  forma genérica (sin precisar tamaño) agrega tanto `emprendedor` como `empresa`.
 
 No se requiere tocar `index.html` ni `app.js` para agregar servicios nuevos.
 
@@ -112,6 +124,15 @@ En GitHub Pages funcionará sin configuración adicional, ya que se sirve por HT
   frecuentes y proceso de trabajo, filtros por tipo de cliente/necesidad/nivel de servicio,
   selección de servicios ("Mis servicios seleccionados"), resumen personalizado y botones
   de contacto (WhatsApp, formulario, correo).
+  - ✅ Botón de WhatsApp flotante.
+  - ✅ Cotizador conectado a Supabase.
+  - ✅ Modal soporta problema/incluye/proceso/resultado/FAQ (pendiente de contenido real).
+  - ✅ Filtro por tipo de cliente (`tipoCliente`, derivado de `clienteIdeal`).
+  - ✅ Carrito "Mis servicios seleccionados": botón "+" en tarjeta y en el modal, persiste en
+    `sessionStorage`, panel lateral con quitar/vaciar, y botón que manda todo al cotizador
+    marcando los checkboxes del paso 3.
+  - ⏳ Pendiente: contenido real de `problema`, `queIncluye`, `comoTrabajamos`, `resultadoEsperado`
+    y `faq` para los 31 servicios — requiere información de negocio que no se puede inventar.
 - **Fase 3 — Catálogo inteligente y ecosistema IM**: cotizador inteligente, panel de
   administración básico (sin backend todavía) y estructura preparada para
   `/portal-clientes`, `/academia-im`, `/plantillas` y `/dashboard`.
