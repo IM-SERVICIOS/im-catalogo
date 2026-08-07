@@ -17,14 +17,6 @@
   --line: #DCD7C9;       /* líneas divisorias sobre papel */
   --line-dark: rgba(246,244,238,0.16); /* líneas sobre superficies oscuras */
 
-  /* Acentos por categoría — usados en la imagen de cabecera de cada tarjeta */
-  --cat-fiscal: #1F6F54;        --cat-fiscal-deep: #123F30;
-  --cat-contable: #1C303D;      --cat-contable-deep: #0C161D;
-  --cat-organizacion: #B9812E;  --cat-organizacion-deep: #7A5219;
-  --cat-dashboards: #2E5C86;    --cat-dashboards-deep: #16324D;
-  --cat-automatizacion: #1B7A72; --cat-automatizacion-deep: #0E4842;
-  --cat-asesorias: #6B4A8C;     --cat-asesorias-deep: #402A55;
-
   /* Type */
   --font-display: 'Space Grotesk', 'Arial Narrow', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -117,20 +109,6 @@ input:focus-visible {
   font-weight: 700;
   font-size: 20px;
   letter-spacing: 0.02em;
-}
-
-.brand-logo {
-  display: flex;
-  align-items: center;
-  background: var(--paper);
-  border-radius: var(--radius-sm);
-  padding: 4px 10px;
-  line-height: 0;
-}
-
-.brand-logo img {
-  height: 34px;
-  width: auto;
 }
 
 .brand-sello {
@@ -318,7 +296,7 @@ input:focus-visible {
   border: 1px solid rgba(185,129,46,0.35);
   border-radius: var(--radius-md);
   background: rgba(185,129,46,0.08);
-  max-width: 720px;
+  max-width: 640px;
 }
 
 .hero-exclusive-tag {
@@ -337,16 +315,6 @@ input:focus-visible {
   color: rgba(246,244,238,0.85);
   max-width: none;
 }
-
-.hero-exclusive-link {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--amber);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.hero-exclusive-link:hover { text-decoration: underline; }
 
 /* ==========================================================================
    Toolbar: search + category tabs
@@ -480,14 +448,14 @@ input:focus-visible {
   background: var(--paper-card);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  padding: 0;
+  padding: 20px 20px 18px;
   display: flex;
   flex-direction: column;
+  gap: 14px;
   cursor: pointer;
   transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   text-align: left;
   position: relative;
-  overflow: hidden;
 }
 
 .service-card:hover,
@@ -497,71 +465,26 @@ input:focus-visible {
   box-shadow: 0 16px 30px -20px rgba(18,32,43,0.4);
 }
 
-.card-image {
-  position: relative;
-  height: 104px;
-  flex-shrink: 0;
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: rgba(31,111,84,0.08);
+  color: var(--ledger);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  flex-shrink: 0;
 }
 
-.card-image::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(246,244,238,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(246,244,238,0.08) 1px, transparent 1px);
-  background-size: 16px 16px;
-  mask-image: radial-gradient(circle at 30% 30%, black, transparent 75%);
-}
-
-.card-image::after {
-  content: '';
-  position: absolute;
-  right: -18px;
-  bottom: -22px;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-}
-
-.card-image .icon-big {
-  width: 42px;
-  height: 42px;
-  color: rgba(246,244,238,0.94);
-  position: relative;
-  z-index: 2;
-}
-
-.card-image[data-cat="fiscal"]        { background: linear-gradient(135deg, var(--cat-fiscal), var(--cat-fiscal-deep)); }
-.card-image[data-cat="contable"]      { background: linear-gradient(135deg, var(--cat-contable), var(--cat-contable-deep)); }
-.card-image[data-cat="organizacion"]  { background: linear-gradient(135deg, var(--cat-organizacion), var(--cat-organizacion-deep)); }
-.card-image[data-cat="dashboards"]    { background: linear-gradient(135deg, var(--cat-dashboards), var(--cat-dashboards-deep)); }
-.card-image[data-cat="automatizacion"] { background: linear-gradient(135deg, var(--cat-automatizacion), var(--cat-automatizacion-deep)); }
-.card-image[data-cat="asesorias"]     { background: linear-gradient(135deg, var(--cat-asesorias), var(--cat-asesorias-deep)); }
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 16px 20px 18px;
-  flex: 1;
-}
-
-.card-image .folio-tag {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  z-index: 2;
-  color: rgba(246,244,238,0.85);
-  background: rgba(18,32,43,0.28);
-  border-radius: 3px;
-  padding: 2px 6px;
-}
+.card-icon .icon { width: 20px; height: 20px; }
 
 .folio-tag {
   font-family: var(--font-mono);
@@ -1055,17 +978,11 @@ input:focus-visible {
   font-size: 13.5px;
   color: var(--ink);
   cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .checkbox-pill:has(input:checked) {
   border-color: var(--ledger);
   background: rgba(31, 111, 84, 0.06);
-}
-
-.checkbox-pill.is-preseleccionado {
-  border-color: var(--amber);
-  box-shadow: 0 0 0 3px rgba(185,129,46,0.18);
 }
 
 .checkbox-pill input { margin-top: 3px; }
@@ -1162,44 +1079,6 @@ input:focus-visible {
 .site-footer .brand-mark { color: rgba(246,244,238,0.8); font-size: 15px; }
 
 /* ==========================================================================
-   Botón flotante de WhatsApp
-   ========================================================================== */
-
-.whatsapp-float {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #25D366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 24px -8px rgba(18,32,43,0.45);
-  z-index: 90;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.whatsapp-float[hidden] { display: none; }
-
-.whatsapp-float:hover {
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 14px 30px -8px rgba(18,32,43,0.5);
-}
-
-.whatsapp-float .icon {
-  width: 28px;
-  height: 28px;
-  color: #FFFFFF;
-}
-
-@media (max-width: 620px) {
-  .whatsapp-float { right: 16px; bottom: 16px; width: 50px; height: 50px; }
-  .whatsapp-float .icon { width: 25px; height: 25px; }
-}
-
-/* ==========================================================================
    Utility
    ========================================================================== */
 
@@ -1213,8 +1092,259 @@ input:focus-visible {
   border: 0;
 }
 
+/* ==========================================================================
+   Dinamismo — animaciones, profundidad y micro-interacciones
+   ========================================================================== */
+
+/* --- Texto con acento en gradiente (hero) -------------------------------- */
+
+.text-accent {
+  background: linear-gradient(100deg, var(--ledger) 0%, #3FA582 55%, var(--amber) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--ledger);
+}
+
+/* --- Fondo del hero con acentos flotantes -------------------------------- */
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(31,111,84,0.35), transparent 70%);
+  filter: blur(10px);
+  pointer-events: none;
+  animation: im-float 9s ease-in-out infinite;
+}
+
+@keyframes im-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-16px, 18px) scale(1.06); }
+}
+
+.hero-stat b {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Entrada escalonada de tarjetas --------------------------------------- */
+
+@keyframes im-card-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.service-card {
+  opacity: 0;
+  animation: im-card-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 45ms);
+  will-change: transform;
+}
+
+/* Barra de acento que se desliza al pasar el cursor */
+.service-card {
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background: linear-gradient(90deg, var(--ledger), var(--amber));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::before,
+.service-card:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover,
+.service-card:focus-visible {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.service-card:active {
+  transform: translateY(-1px) scale(0.995);
+  transition: transform 0.08s ease;
+}
+
+.card-icon {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
+}
+
+.service-card:hover .card-icon {
+  transform: scale(1.1) rotate(-4deg);
+  background: rgba(31,111,84,0.16);
+}
+
+.status-dot {
+  position: relative;
+}
+
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid var(--ledger);
+  opacity: 0;
+  animation: im-pulse 2.4s ease-out infinite;
+}
+
+.status-dot.is-soon::after { border-color: var(--amber); }
+
+@keyframes im-pulse {
+  0% { opacity: 0.55; transform: scale(0.6); }
+  70% { opacity: 0; transform: scale(1.8); }
+  100% { opacity: 0; transform: scale(1.8); }
+}
+
+/* --- Skeleton de carga ----------------------------------------------------- */
+
+.skeleton-card {
+  opacity: 1;
+  animation: im-card-in 0.4s ease forwards;
+  animation-delay: calc(var(--i, 0) * 60ms);
+  cursor: default;
+}
+
+.skeleton-block {
+  background: linear-gradient(90deg, var(--line) 25%, #EDEAE0 37%, var(--line) 63%);
+  background-size: 400% 100%;
+  animation: im-shimmer 1.4s ease infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-icon { width: 38px; height: 38px; border-radius: var(--radius-sm); }
+.skeleton-line { height: 12px; width: 100%; }
+
+@keyframes im-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* --- Categorías: transición más viva --------------------------------------- */
+
+.tab {
+  transform: scale(1);
+}
+
+.tab:hover {
+  transform: translateY(-1px);
+}
+
+.tab.is-active {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px -10px rgba(18,32,43,0.5);
+}
+
+.tab .icon {
+  transition: transform 0.25s ease;
+}
+
+.tab:hover .icon {
+  transform: scale(1.12);
+}
+
+/* --- Botones: elevación y respuesta al clic --------------------------------- */
+
+.btn-primary {
+  position: relative;
+  box-shadow: 0 1px 2px rgba(18,32,43,0.06);
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px -10px rgba(31,111,84,0.55);
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.btn-secondary {
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-1px);
+}
+
+/* --- Modal: transición de apertura/cierre ----------------------------------- */
+
+.modal-overlay {
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+}
+
+.modal {
+  transform: translateY(18px) scale(0.98);
+  opacity: 0;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.22s ease;
+}
+
+.modal-overlay.is-open .modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.modal-close {
+  transition: transform 0.2s ease, opacity 0.15s ease;
+}
+
+.modal-close:hover {
+  transform: rotate(90deg);
+}
+
+.faq-item summary::after {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(180deg);
+}
+
+/* --- Empty state con entrada suave ------------------------------------------ */
+
+.empty-state {
+  animation: im-card-in 0.4s ease forwards;
+}
+
+/* --- Se respeta preferencia de movimiento reducido -------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::after,
+  .status-dot::after,
+  .skeleton-block {
+    animation: none !important;
+  }
+  .service-card,
+  .skeleton-card,
+  .empty-state {
+    opacity: 1;
+    animation: none !important;
+  }
+}
+
 @media (max-width: 620px) {
   .hero { padding: 44px 0 70px; }
   .toolbar-wrap { margin-top: -30px; }
   .card-grid { grid-template-columns: 1fr; }
+  .hero::after { display: none; }
 }
