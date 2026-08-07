@@ -71,6 +71,7 @@
   }
 
   async function iniciar() {
+    mostrarSkeleton();
     try {
       const [config, catalogo] = await Promise.all([
         cargarJSON('config/config.json'),
@@ -91,6 +92,27 @@
     } catch (error) {
       mostrarErrorCarga(error);
     }
+  }
+
+  function mostrarSkeleton() {
+    if (!els.cardGrid) return;
+    let placeholders = '';
+    for (let i = 0; i < 6; i++) {
+      placeholders +=
+        '<div class="service-card skeleton-card" style="--i:' + i + '" aria-hidden="true">' +
+          '<div class="card-top">' +
+            '<div class="skeleton-block skeleton-icon"></div>' +
+            '<div class="skeleton-block skeleton-line" style="width:52px"></div>' +
+          '</div>' +
+          '<div class="card-body">' +
+            '<div class="skeleton-block skeleton-line" style="width:70px;height:10px"></div>' +
+            '<div class="skeleton-block skeleton-line" style="width:80%;height:16px;margin-top:8px"></div>' +
+            '<div class="skeleton-block skeleton-line" style="width:100%;margin-top:10px"></div>' +
+            '<div class="skeleton-block skeleton-line" style="width:65%"></div>' +
+          '</div>' +
+        '</div>';
+    }
+    els.cardGrid.innerHTML = placeholders;
   }
 
   function mostrarErrorCarga(error) {
@@ -123,8 +145,23 @@
   }
 
   function renderStats() {
-    els.statTotal.textContent = state.servicios.filter(function (s) { return s.disponible; }).length;
-    els.statCategorias.textContent = state.categorias.length;
+    const totalDisponible = state.servicios.filter(function (s) { return s.disponible; }).length;
+    animarNumero(els.statTotal, totalDisponible);
+    animarNumero(els.statCategorias, state.categorias.length);
+  }
+
+  // Cuenta ascendente suave para los números del hero (0 -> valor final).
+  function animarNumero(el, valorFinal, duracion) {
+    if (!el) return;
+    duracion = duracion || 900;
+    const inicio = performance.now();
+    function paso(ahora) {
+      const progreso = Math.min(1, (ahora - inicio) / duracion);
+      const facil = 1 - Math.pow(1 - progreso, 3); // ease-out-cubic
+      el.textContent = Math.round(facil * valorFinal);
+      if (progreso < 1) requestAnimationFrame(paso);
+    }
+    requestAnimationFrame(paso);
   }
 
   function renderHeroExclusivo() {
@@ -200,15 +237,16 @@
       return;
     }
 
-    els.cardGrid.innerHTML = lista.map(cardHTML).join('');
+    els.cardGrid.innerHTML = lista.map(function (s, i) { return cardHTML(s, i); }).join('');
   }
 
-  function cardHTML(servicio) {
+  function cardHTML(servicio, indice) {
     const statusClase = servicio.disponible ? '' : 'is-soon';
     const statusTexto = servicio.disponible ? 'Disponible' : 'Próximamente';
+    const retardo = Math.min(indice, 11); // limita el stagger para listas largas
 
     return (
-      '<button class="service-card" type="button" data-id="' + servicio.id + '">' +
+      '<button class="service-card" type="button" data-id="' + servicio.id + '" style="--i:' + retardo + '">' +
         '<div class="card-top">' +
           '<div class="card-icon">' +
             '<svg class="icon" aria-hidden="true"><use href="' + ICONS_PATH + '#icon-' + servicio.icono + '"></use></svg>' +
@@ -276,17 +314,15 @@
     els.modalCtaBtn.textContent = servicio.accionPrincipal.texto;
     els.modalCtaBtn.disabled = false;
     els.modalCtaBtn.onclick = function () {
-      // Cursos de Academia IM: el precio nunca se muestra en la tarjeta ni en el
-      // detalle; solo se revela dentro del mensaje de WhatsApp al preguntar por el curso.
-      if (servicio.accionPrincipal.tipo === 'whatsapp-curso' && servicio.precioEstimado) {
-        abrirWhatsappCurso(servicio);
-        return;
-      }
-      // Fase 2 conectará el resto de los botones a WhatsApp / formulario / selección de servicios.
+      // Fase 2 conectará este botón a WhatsApp / formulario / selección de servicios.
       alert('En la Fase 2 este botón enviará "' + servicio.nombre + '" a tu solicitud de propuesta.');
     };
 
     els.modalOverlay.hidden = false;
+    // Se separa en un frame aparte para que la transición CSS realmente se anime.
+    requestAnimationFrame(function () {
+      els.modalOverlay.classList.add('is-open');
+    });
     document.body.style.overflow = 'hidden';
     els.modalClose.focus();
   }
@@ -336,32 +372,14 @@
     }).join('');
   }
 
-  // Arma un mensaje de WhatsApp para preguntar por un curso de Academia IM,
-  // incluyendo el precio estimado (que en ningún otro punto de la interfaz se muestra).
-  function abrirWhatsappCurso(servicio) {
-    const contacto = (state.config && state.config.contacto) || {};
-    const numero = contacto.whatsappNumero;
-    if (!numero) {
-      alert('No se encontró un número de WhatsApp configurado para enviar la consulta.');
-      return;
-    }
-
-    const precio = servicio.precioEstimado;
-    const moneda = servicio.moneda || 'MXN';
-    const nota = servicio.precioNota || 'por persona + IVA';
-
-    const mensaje =
-      'Hola, me interesa el curso "' + servicio.nombre + '" de Academia IM. ' +
-      'Vi que el precio estimado es de $' + precio + ' ' + moneda + ' (' + nota + '). ' +
-      '¿Podrían darme más información?';
-
-    const url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(mensaje);
-    window.open(url, '_blank', 'noopener');
-  }
-
   function cerrarDetalle() {
-    els.modalOverlay.hidden = true;
+    if (els.modalOverlay.hidden) return;
+    els.modalOverlay.classList.remove('is-open');
     document.body.style.overflow = '';
+    // Espera a que termine la transición de salida antes de ocultar de verdad.
+    setTimeout(function () {
+      els.modalOverlay.hidden = true;
+    }, 200);
   }
 
   // ------------------------------------------------------------------------
