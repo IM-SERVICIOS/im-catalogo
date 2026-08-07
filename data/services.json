@@ -4,14 +4,46 @@
     "descripcion": "Como cliente de IM Servicios Contables, tienes acceso gratuito al Portal IM: tu espacio privado disponible 24/7 para consultar tus declaraciones, revisar y descargar tus documentos fiscales, y ver el estado de tus honorarios en tiempo real, desde cualquier dispositivo."
   },
   "categorias": [
-    { "id": "fiscal", "nombre": "Servicios Fiscales", "icono": "fiscal" },
-    { "id": "contable", "nombre": "Servicios Contables", "icono": "contable" },
-    { "id": "organizacion", "nombre": "Organización Financiera", "icono": "organizacion" },
-    { "id": "dashboards", "nombre": "Dashboards y Análisis", "icono": "dashboards" },
-    { "id": "automatizacion", "nombre": "Automatización Administrativa", "icono": "automatizacion" },
-    { "id": "asesorias", "nombre": "Asesorías Especializadas", "icono": "asesorias" },
-    { "id": "plantillas", "nombre": "Plantillas Inteligentes IM", "icono": "plantillas" },
-    { "id": "academia", "nombre": "Academia IM", "icono": "academia" }
+    {
+      "id": "fiscal",
+      "nombre": "Servicios Fiscales",
+      "icono": "fiscal"
+    },
+    {
+      "id": "contable",
+      "nombre": "Servicios Contables",
+      "icono": "contable"
+    },
+    {
+      "id": "organizacion",
+      "nombre": "Organización Financiera",
+      "icono": "organizacion"
+    },
+    {
+      "id": "dashboards",
+      "nombre": "Dashboards y Análisis",
+      "icono": "dashboards"
+    },
+    {
+      "id": "automatizacion",
+      "nombre": "Automatización Administrativa",
+      "icono": "automatizacion"
+    },
+    {
+      "id": "asesorias",
+      "nombre": "Asesorías Especializadas",
+      "icono": "asesorias"
+    },
+    {
+      "id": "plantillas",
+      "nombre": "Plantillas Inteligentes IM",
+      "icono": "plantillas"
+    },
+    {
+      "id": "academia",
+      "nombre": "Academia IM",
+      "icono": "academia"
+    }
   ],
   "servicios": [
     {
@@ -28,7 +60,14 @@
       "clienteIdeal": "Personas físicas con actividad empresarial y empresas que ya facturan de forma regular.",
       "icono": "fiscal",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "empresa",
+        "fisica"
+      ]
     },
     {
       "id": "IM-002",
@@ -44,7 +83,13 @@
       "clienteIdeal": "Personas físicas y morales que buscan cerrar el año con certeza y sin contingencias.",
       "icono": "fiscal",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "fisica"
+      ]
     },
     {
       "id": "IM-003",
@@ -60,7 +105,13 @@
       "clienteIdeal": "Personas físicas con ingresos anuales dentro de los límites permitidos por RESICO.",
       "icono": "fiscal",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "fisica"
+      ]
     },
     {
       "id": "IM-004",
@@ -76,7 +127,14 @@
       "clienteIdeal": "Empresas y negocios que requieren contabilidad formal y ordenada todo el año.",
       "icono": "contable",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-005",
@@ -92,7 +150,14 @@
       "clienteIdeal": "Negocios con uno o más empleados en nómina formal.",
       "icono": "contable",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-006",
@@ -108,7 +173,14 @@
       "clienteIdeal": "Negocios con movimiento bancario frecuente y múltiples cuentas.",
       "icono": "contable",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-007",
@@ -124,7 +196,14 @@
       "clienteIdeal": "Negocios con volumen alto de facturación y documentación dispersa.",
       "icono": "organizacion",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-008",
@@ -140,7 +219,14 @@
       "clienteIdeal": "Emprendedores que están formalizando el orden financiero de su negocio.",
       "icono": "organizacion",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-009",
@@ -156,7 +242,14 @@
       "clienteIdeal": "Negocios en crecimiento que buscan planear su año con anticipación.",
       "icono": "organizacion",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-010",
@@ -172,7 +265,14 @@
       "clienteIdeal": "Dueños de negocio que quieren decidir con datos, no solo con intuición.",
       "icono": "dashboards",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-011",
@@ -188,7 +288,14 @@
       "clienteIdeal": "Negocios con más de una línea de producto o servicio.",
       "icono": "dashboards",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-012",
@@ -204,7 +311,14 @@
       "clienteIdeal": "Negocios que buscan medir su desempeño de forma profesional.",
       "icono": "dashboards",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-013",
@@ -220,7 +334,14 @@
       "clienteIdeal": "Negocios con facturación recurrente a los mismos clientes.",
       "icono": "automatizacion",
       "disponible": false,
-      "accionPrincipal": { "texto": "Notificarme al lanzar", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Notificarme al lanzar",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-014",
@@ -236,7 +357,14 @@
       "clienteIdeal": "Negocios que manejan múltiples obligaciones fiscales al mes.",
       "icono": "automatizacion",
       "disponible": false,
-      "accionPrincipal": { "texto": "Notificarme al lanzar", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Notificarme al lanzar",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-015",
@@ -252,7 +380,13 @@
       "clienteIdeal": "Empresas con varias personas autorizando gastos.",
       "icono": "automatizacion",
       "disponible": false,
-      "accionPrincipal": { "texto": "Notificarme al lanzar", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Notificarme al lanzar",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "empresa"
+      ]
     },
     {
       "id": "IM-016",
@@ -268,7 +402,14 @@
       "clienteIdeal": "Personas que están iniciando un negocio o actividad profesional.",
       "icono": "asesorias",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-017",
@@ -284,7 +425,14 @@
       "clienteIdeal": "Empresas en expansión o con más de una unidad de negocio.",
       "icono": "asesorias",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-018",
@@ -300,7 +448,14 @@
       "clienteIdeal": "Negocios que ya tienen contador pero buscan validar su situación actual.",
       "icono": "asesorias",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-019",
@@ -316,7 +471,14 @@
       "clienteIdeal": "Negocios que quieren dejar de operar 'a ojo' y saber con certeza cuánto dinero tienen.",
       "icono": "plantillas",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-020",
@@ -332,7 +494,14 @@
       "clienteIdeal": "Negocios con varios clientes, servicios o líneas de ingreso que quieren claridad.",
       "icono": "plantillas",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-021",
@@ -348,7 +517,14 @@
       "clienteIdeal": "Negocios que quieren dejar de perder el rastro de en qué se va el dinero.",
       "icono": "plantillas",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-022",
@@ -364,7 +540,14 @@
       "clienteIdeal": "Negocios que quieren planear su año en vez de improvisarlo mes a mes.",
       "icono": "plantillas",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-023",
@@ -380,7 +563,14 @@
       "clienteIdeal": "Negocios que facturan de forma regular y necesitan orden mes con mes.",
       "icono": "plantillas",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-024",
@@ -396,7 +586,14 @@
       "clienteIdeal": "Negocios que manejan producto físico y necesitan control de inventario.",
       "icono": "plantillas",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-025",
@@ -412,7 +609,14 @@
       "clienteIdeal": "Negocios que quieren conciliar sus cuentas sin depender de fórmulas complejas.",
       "icono": "plantillas",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-026",
@@ -428,7 +632,14 @@
       "clienteIdeal": "Negocios y personas con varias obligaciones fiscales a lo largo del año.",
       "icono": "plantillas",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-027",
@@ -444,7 +655,14 @@
       "clienteIdeal": "Negocios que quieren evaluar decisiones antes de tomarlas, no después.",
       "icono": "plantillas",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar información", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar información",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-028",
@@ -460,7 +678,14 @@
       "clienteIdeal": "Negocios con necesidades específicas que las plantillas estándar no cubren.",
       "icono": "plantillas",
       "disponible": true,
-      "accionPrincipal": { "texto": "Solicitar plantilla a mi medida", "tipo": "detalle" }
+      "accionPrincipal": {
+        "texto": "Solicitar plantilla a mi medida",
+        "tipo": "detalle"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     },
     {
       "id": "IM-029",
@@ -479,7 +704,14 @@
       "precioEstimado": 79,
       "moneda": "MXN",
       "precioNota": "por persona + IVA",
-      "accionPrincipal": { "texto": "Preguntar por este curso", "tipo": "whatsapp-curso" }
+      "accionPrincipal": {
+        "texto": "Preguntar por este curso",
+        "tipo": "whatsapp-curso"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "fisica"
+      ]
     },
     {
       "id": "IM-030",
@@ -498,7 +730,14 @@
       "precioEstimado": 99,
       "moneda": "MXN",
       "precioNota": "por persona + IVA",
-      "accionPrincipal": { "texto": "Preguntar por este curso", "tipo": "whatsapp-curso" }
+      "accionPrincipal": {
+        "texto": "Preguntar por este curso",
+        "tipo": "whatsapp-curso"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "fisica"
+      ]
     },
     {
       "id": "IM-031",
@@ -517,7 +756,14 @@
       "precioEstimado": 149,
       "moneda": "MXN",
       "precioNota": "por persona + IVA",
-      "accionPrincipal": { "texto": "Preguntar por este curso", "tipo": "whatsapp-curso" }
+      "accionPrincipal": {
+        "texto": "Preguntar por este curso",
+        "tipo": "whatsapp-curso"
+      },
+      "tipoCliente": [
+        "emprendedor",
+        "empresa"
+      ]
     }
   ]
 }
