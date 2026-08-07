@@ -31,6 +31,7 @@
     heroExclusive: document.getElementById('hero-exclusive'),
     heroExclusiveTag: document.getElementById('hero-exclusive-tag'),
     heroExclusiveTexto: document.getElementById('hero-exclusive-texto'),
+    heroExclusiveLink: document.getElementById('hero-exclusive-link'),
     searchInput: document.getElementById('search-input'),
     searchCount: document.getElementById('search-count'),
     categoryTabs: document.getElementById('category-tabs'),
@@ -55,7 +56,8 @@
     modalAccionesSecundarias: document.getElementById('modal-acciones-secundarias'),
     modalClose: document.getElementById('modal-close'),
     modalCerrarBtn: document.getElementById('modal-cerrar-btn'),
-    modalCtaBtn: document.getElementById('modal-cta-btn')
+    modalCtaBtn: document.getElementById('modal-cta-btn'),
+    whatsappFloat: document.getElementById('whatsapp-float')
   };
 
   // ------------------------------------------------------------------------
@@ -86,6 +88,7 @@
       renderNav();
       renderStats();
       renderHeroExclusivo();
+      renderWhatsappFloat();
       renderCategoryTabs();
       renderCards();
       registrarEventos();
@@ -100,11 +103,8 @@
     for (let i = 0; i < 6; i++) {
       placeholders +=
         '<div class="service-card skeleton-card" style="--i:' + i + '" aria-hidden="true">' +
-          '<div class="card-top">' +
-            '<div class="skeleton-block skeleton-icon"></div>' +
-            '<div class="skeleton-block skeleton-line" style="width:52px"></div>' +
-          '</div>' +
-          '<div class="card-body">' +
+          '<div class="skeleton-block" style="height:104px;border-radius:0;margin:0;"></div>' +
+          '<div class="card-body" style="padding:16px 20px 0;">' +
             '<div class="skeleton-block skeleton-line" style="width:70px;height:10px"></div>' +
             '<div class="skeleton-block skeleton-line" style="width:80%;height:16px;margin-top:8px"></div>' +
             '<div class="skeleton-block skeleton-line" style="width:100%;margin-top:10px"></div>' +
@@ -134,7 +134,9 @@
   function renderNav() {
     els.mainNav.innerHTML = state.config.navegacion.map(function (item) {
       if (item.activo) {
-        return '<a class="nav-link is-active" href="' + item.enlace + '">' +
+        const esExterno = /^https?:\/\//.test(item.enlace);
+        const targetAttrs = esExterno ? ' target="_blank" rel="noopener noreferrer"' : '';
+        return '<a class="nav-link is-active" href="' + item.enlace + '"' + targetAttrs + '>' +
           '<span class="nav-text">' + item.texto + '</span></a>';
       }
       return '<span class="nav-link is-disabled" tabindex="0" aria-disabled="true">' +
@@ -142,6 +144,14 @@
         '<span class="nav-tag">' + (item.estado || 'Próximamente') + '</span>' +
         '</span>';
     }).join('');
+  }
+
+  function renderWhatsappFloat() {
+    const contacto = state.config.contacto;
+    if (!els.whatsappFloat || !contacto || !contacto.whatsappNumero) return;
+    const mensaje = encodeURIComponent(contacto.whatsappMensajeDefault || 'Hola, me interesa información sobre IM Servicios Contables');
+    els.whatsappFloat.href = 'https://wa.me/' + contacto.whatsappNumero + '?text=' + mensaje;
+    els.whatsappFloat.hidden = false;
   }
 
   function renderStats() {
@@ -173,6 +183,18 @@
     els.heroExclusiveTag.textContent = b.titulo || 'Beneficio exclusivo';
     els.heroExclusiveTexto.textContent = b.descripcion || b.texto || '';
     els.heroExclusive.hidden = false;
+
+    if (els.heroExclusiveLink) {
+      const portal = (state.config.navegacion || []).find(function (item) {
+        return item.activo && /portal/i.test(item.texto);
+      });
+      if (portal) {
+        els.heroExclusiveLink.href = portal.enlace;
+        els.heroExclusiveLink.hidden = false;
+      } else {
+        els.heroExclusiveLink.hidden = true;
+      }
+    }
   }
 
   function renderCategoryTabs() {
@@ -247,20 +269,20 @@
 
     return (
       '<button class="service-card" type="button" data-id="' + servicio.id + '" style="--i:' + retardo + '">' +
-        '<div class="card-top">' +
-          '<div class="card-icon">' +
-            '<svg class="icon" aria-hidden="true"><use href="' + ICONS_PATH + '#icon-' + servicio.icono + '"></use></svg>' +
-          '</div>' +
+        '<div class="card-image" data-cat="' + servicio.categoria + '">' +
           '<span class="folio-tag">' + servicio.id + '</span>' +
+          '<svg class="icon icon-big" aria-hidden="true"><use href="' + ICONS_PATH + '#icon-' + servicio.icono + '"></use></svg>' +
         '</div>' +
-        '<div class="card-body">' +
-          '<div class="card-category">' + nombreCategoria(servicio.categoria) + '</div>' +
-          '<h3>' + servicio.nombre + '</h3>' +
-          '<p>' + servicio.descripcionCorta + '</p>' +
-        '</div>' +
-        '<div class="card-footer">' +
-          '<span class="card-status"><span class="status-dot ' + statusClase + '"></span>' + statusTexto + '</span>' +
-          '<span class="card-cta">Ver detalle</span>' +
+        '<div class="card-content">' +
+          '<div class="card-body">' +
+            '<div class="card-category">' + nombreCategoria(servicio.categoria) + '</div>' +
+            '<h3>' + servicio.nombre + '</h3>' +
+            '<p>' + servicio.descripcionCorta + '</p>' +
+          '</div>' +
+          '<div class="card-footer">' +
+            '<span class="card-status"><span class="status-dot ' + statusClase + '"></span>' + statusTexto + '</span>' +
+            '<span class="card-cta">Ver detalle</span>' +
+          '</div>' +
         '</div>' +
       '</button>'
     );
@@ -314,8 +336,8 @@
     els.modalCtaBtn.textContent = servicio.accionPrincipal.texto;
     els.modalCtaBtn.disabled = false;
     els.modalCtaBtn.onclick = function () {
-      // Fase 2 conectará este botón a WhatsApp / formulario / selección de servicios.
-      alert('En la Fase 2 este botón enviará "' + servicio.nombre + '" a tu solicitud de propuesta.');
+      cerrarDetalle();
+      irACotizadorConServicio(servicio.id);
     };
 
     els.modalOverlay.hidden = false;
@@ -380,6 +402,35 @@
     setTimeout(function () {
       els.modalOverlay.hidden = true;
     }, 200);
+  }
+
+  // Cierra el modal, hace scroll al cotizador y marca el checkbox del
+  // servicio correspondiente en el paso 3. El grid de checkboxes lo llena
+  // cotizador.js de forma independiente y asíncrona, así que reintentamos
+  // brevemente por si aún no terminó de montarse. La cotización en sí se
+  // crea en Supabase hasta que la persona complete el formulario (nombre,
+  // correo, teléfono son obligatorios) y presione "Enviar" — ver
+  // js/cotizador.js → guardarEnSupabase().
+  function irACotizadorConServicio(servicioId) {
+    const cotizadorSection = document.getElementById('cotizador');
+    if (cotizadorSection) cotizadorSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    let intentos = 0;
+    (function marcarCheckbox() {
+      const checkbox = document.querySelector('#q-servicios-grid input[name="servicios"][value="' + servicioId + '"]');
+      if (checkbox) {
+        checkbox.checked = true;
+        checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+        const pill = checkbox.closest('.checkbox-pill');
+        if (pill) {
+          pill.classList.add('is-preseleccionado');
+          setTimeout(function () { pill.classList.remove('is-preseleccionado'); }, 2200);
+        }
+        return;
+      }
+      intentos += 1;
+      if (intentos < 15) setTimeout(marcarCheckbox, 150);
+    })();
   }
 
   // ------------------------------------------------------------------------
