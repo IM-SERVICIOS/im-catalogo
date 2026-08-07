@@ -78,6 +78,15 @@
       <div class="category-tabs" id="category-tabs" role="tablist" aria-label="Filtrar por categoría">
         <!-- Se completa dinámicamente -->
       </div>
+      <div class="client-filter" id="client-filter" role="group" aria-label="Filtrar por tipo de cliente">
+        <span class="client-filter-label">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-filter"></use></svg>
+          Para ti si eres…
+        </span>
+        <div class="client-filter-chips" id="client-filter-chips">
+          <!-- Se completa dinámicamente -->
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -156,6 +165,10 @@
       <div class="modal-footer-secondary" id="modal-acciones-secundarias" hidden></div>
       <div class="modal-footer-primary">
         <button class="btn btn-secondary" id="modal-cerrar-btn">Seguir explorando</button>
+        <button class="btn btn-outline" id="modal-seleccion-btn" type="button">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-plus"></use></svg>
+          <span>Agregar a mi selección</span>
+        </button>
         <button class="btn btn-primary" id="modal-cta-btn">Solicitar información</button>
       </div>
     </div>
@@ -333,6 +346,32 @@
     <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.37 5.07L2 22l5.19-1.47a9.9 9.9 0 0 0 4.85 1.24h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.4 17.5 2 12.04 2zm0 18.1h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.08.87.82-3-.2-.31a8.17 8.17 0 0 1-1.26-4.42c0-4.53 3.68-8.21 8.22-8.21 2.2 0 4.26.86 5.82 2.41a8.15 8.15 0 0 1 2.4 5.81c0 4.53-3.68 8.18-8.22 8.18z"/>
   </svg>
 </a>
+
+<!-- ==========================================================================
+     Carrito flotante: "Mis servicios seleccionados"
+     ========================================================================== -->
+<button type="button" id="selection-float" class="selection-float" aria-label="Ver mi selección de servicios" hidden>
+  <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-cart"></use></svg>
+  <span class="selection-float-count" id="selection-float-count">0</span>
+</button>
+
+<div class="selection-panel-overlay" id="selection-panel-overlay" hidden>
+  <aside class="selection-panel" role="dialog" aria-modal="true" aria-labelledby="selection-panel-title">
+    <div class="selection-panel-head">
+      <h2 id="selection-panel-title">Mis servicios seleccionados</h2>
+      <button class="modal-close" id="selection-panel-close" aria-label="Cerrar panel de selección">
+        <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-close"></use></svg>
+      </button>
+    </div>
+    <div class="selection-panel-body" id="selection-panel-body">
+      <!-- Lista generada dinámicamente -->
+    </div>
+    <div class="selection-panel-footer">
+      <button class="btn btn-secondary" id="selection-vaciar-btn" type="button">Vaciar selección</button>
+      <button class="btn btn-primary" id="selection-cotizar-btn" type="button">Ir al cotizador con mi selección</button>
+    </div>
+  </aside>
+</div>
 
 
 <!-- SDK de Supabase (solo se usa para insertar cotizaciones; sin lectura pública) -->
