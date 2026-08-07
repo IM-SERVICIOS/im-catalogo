@@ -408,5 +408,3 @@
 
   document.addEventListener('DOMContentLoaded', iniciar);
 })();
-  document.addEventListener('DOMContentLoaded', iniciar);
-})();
