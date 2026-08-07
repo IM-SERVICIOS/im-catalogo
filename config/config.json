@@ -5,10 +5,11 @@
     "lema": "Catálogo Inteligente de Servicios Contables y Fiscales"
   },
   "navegacion": [
+    { "texto": "Página Principal", "enlace": "https://im-servicios.github.io/im-catalogo-inteligente/index.html", "activo": true },
     { "texto": "Catálogo", "enlace": "#catalogo", "activo": true },
     { "texto": "Cotizador", "enlace": "#cotizador", "activo": true },
     { "texto": "Portal IM", "enlace": "https://im-servicios.github.io/im-portal-clientes/index.html", "activo": true },
-    { "texto": "Academia IM", "enlace": "https://im-servicios.github.io/CONTABLES/academia.html", "activo": true }
+    { "texto": "Academia IM", "enlace": "https://im-servicios.github.io/im-catalogo-inteligente/academia.html", "activo": true }
   ],
   "modulosFuturos": [
     { "id": "portal-clientes", "nombre": "Portal de Clientes", "fase": 3 },
